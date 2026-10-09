@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>7-B Sinf</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f8fc;
+    color:#17365d;
+}
+
+/* NAVBAR */
+.navbar{
+    height:70px;
+    background:#062b57;
+    display:flex;
+    align-items:center;
+    padding:0 6%;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-size:25px;
+    font-weight:bold;
+    margin-right:70px;
+}
+
+.logo-icon{
+    font-size:35px;
+}
+
+.menu{
+    display:flex;
+    height:100%;
+    align-items:center;
+    gap:5px;
+}
+
+.menu a{
+    height:100%;
+    display:flex;
+    align-items:center;
+    padding:0 18px;
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    position:relative;
+    transition:.25s;
+}
+
+.menu a:hover{
+    color:#20aaff;
+}
+
+.menu a.active{
+    color:#18a9ff;
+}
+
+.menu a.active::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:18px;
+    right:18px;
+    height:4px;
+    background:#19a9ff;
+    border-radius:5px 5px 0 0;
+}
+
+.search{
+    margin-left:auto;
+    font-size:23px;
+}
+
+/* HERO */
+.hero{
+    height:340px;
+    position:relative;
+    background-image:
+        linear-gradient(90deg,
+        rgba(3,39,79,.98) 0%,
+        rgba(3,39,79,.92) 32%,
+        rgba(3,39,79,.45) 58%,
+        rgba(3,39,79,.05) 100%),
+        url("school.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    width:1200px;
+    max-width:90%;
+    margin:auto;
+    color:white;
+}
+
+.small-title{
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-size:44px;
+    line-height:1.18;
+    max-width:520px;
+    margin-bottom:25px;
+}
+
+.slogan{
+    font-size:20px;
+}
+
+/* CARDS */
+.cards{
+    max-width:1200px;
+    margin:25px auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    padding:0 10px;
+}
+
+.card{
+    background:white;
+    min-height:105px;
+    border-radius:8px;
+    border:1px solid #e1e8ef;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    display:flex;
+    align-items:center;
+    padding:18px;
+    transition:.25s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 7px 20px rgba(0,0,0,.12);
+}
+
+.card-icon{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:28px;
+    margin-right:15px;
+    flex-shrink:0;
+}
+
+.blue{
+    background:#1374d1;
+}
+
+.purple{
+    background:#4c42c7;
+}
+
+.green{
+    background:#099a73;
+}
+
+.orange{
+    background:#f2a000;
+}
+
+.card h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.card p{
+    font-size:13px;
+    color:#73869c;
+}
+
+/* MAIN */
+.main{
+    max-width:1200px;
+    margin:20px auto 25px;
+    display:grid;
+    grid-template-columns:2.2fr 1fr;
+    gap:20px;
+    padding:0 10px;
+}
+
+.about{
+    background:white;
+    border-radius:8px;
+    border:1px solid #e0e7ee;
+    padding:25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+
+.section-title{
+    border-left:6px solid #1479d1;
+    padding-left:15px;
+    font-size:25px;
+    margin-bottom:25px;
+}
+
+.about-text p{
+    color:#536b83;
+    line-height:1.8;
+    font-size:15px;
+    margin-bottom:18px;
+}
+
+.shior{
+    color:#1269b6 !important;
+    font-weight:bold;
+}
+
+.shior-text{
+    color:#34516e !important;
+    font-weight:bold;
+}
+
+.about-img{
+    width:100%;
+    height:305px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+/* RIGHT SIDE */
+.side{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.news{
+    background:#edf7ff;
+    border:1px solid #dcecf8;
+    border-radius:8px;
+    padding:20px;
+}
+
+.news-title{
+    font-size:18px;
+    color:#1167a8;
+    margin-bottom:18px;
+    font-weight:bold;
+}
+
+.news-item{
+    padding:12px 0;
+    border-bottom:1px solid #d7e6f2;
+    position:relative;
+    padding-right:20px;
+}
+
+.news-item:last-child{
+    border-bottom:none;
+}
+
+.news-item h4{
+    font-size:14px;
+    color:#234c70;
+    margin-bottom:5px;
+}
+
+.news-item span{
+    font-size:12px;
+    color:#8196a9;
+}
+
+.arrow{
+    position:absolute;
+    right:0;
+    top:23px;
+    color:#6e879c;
+    font-size:18px;
+}
+
+/* QUOTE */
+.quote{
+    background:#edf7ff;
+    border:1px solid #dcecf8;
+    border-radius:8px;
+    padding:20px;
+}
+
+.quote-icon{
+    font-size:32px;
+    color:#146db0;
+    margin-bottom:5px;
+}
+
+.quote p{
+    font-size:14px;
+    color:#536b83;
+    font-style:italic;
+    line-height:1.5;
+}
+
+.quote-line{
+    width:35px;
+    height:3px;
+    background:#1681d1;
+    margin-top:15px;
+}
+
+/* SECTIONS */
+.extra-section{
+    max-width:1200px;
+    margin:30px auto;
+    padding:0 10px;
+}
+
+.section-box{
+    background:white;
+    border-radius:8px;
+    padding:30px;
+    border:1px solid #e0e7ee;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
+.section-box h2{
+    border-left:6px solid #1479d1;
+    padding-left:14px;
+    margin-bottom:20px;
+}
+
+.section-box p{
+    line-height:1.8;
+    color:#526a82;
+}
+
+/* TEACHERS */
+.teachers{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.teacher{
+    background:#f4f8fc;
+    border-radius:8px;
+    padding:18px;
+    border:1px solid #e1e8ef;
+}
+
+.teacher h3{
+    color:#135e9d;
+    margin-bottom:8px;
+    font-size:16px;
+}
+
+.teacher p{
+    font-size:13px;
+}
+
+/* STUDENTS */
+.students{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:20px;
+}
+
+.student{
+    background:#f5f9fd;
+    padding:13px;
+    border-radius:7px;
+    border-left:4px solid #1479d1;
+    font-size:14px;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    border-radius:8px;
+    transition:.25s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+/* CONTACT */
+.contact-box{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.contact-item{
+    background:#f4f8fc;
+    padding:20px;
+    border-radius:8px;
+}
+
+.contact-item h3{
+    color:#1169ad;
+    margin-bottom:8px;
+}
+
+/* FOOTER */
+footer{
+    background:#062b57;
+    color:white;
+    margin-top:35px;
+    padding:28px 7%;
+}
+
+.footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.footer-logo{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.footer-small{
+    color:#b9cee2;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.footer-links{
+    color:#d7e8f8;
+    font-size:13px;
+    padding-top:10px;
+}
+
+.social{
+    display:flex;
+    gap:10px;
+}
+
+.social div{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:#214b75;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.copyright{
+    text-align:center;
+    color:#aac0d5;
+    font-size:12px;
+    margin-top:25px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .navbar{
+        padding:0 20px;
+    }
+
+    .logo{
+        margin-right:15px;
+    }
+
+    .menu a{
+        padding:0 8px;
+        font-size:12px;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .teachers,
+    .students{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    .navbar{
+        height:auto;
+        padding:15px;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .logo{
+        width:100%;
+    }
+
+    .menu{
+        width:100%;
+        overflow-x:auto;
+    }
+
+    .menu a{
+        height:40px;
+        white-space:nowrap;
+    }
+
+    .search{
+        display:none;
+    }
+
+    .hero{
+        height:400px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .about-img{
+        height:230px;
+    }
+
+    .teachers,
+    .students,
+    .gallery,
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+
+    .footer-top{
+        flex-direction:column;
+        gap:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <span>7-B Sinf</span>
+    </div>
+
+    <div class="menu">
+        <a href="#home" class="active">Bosh sahifa</a>
+        <a href="#about">Biz haqimizda</a>
+        <a href="#teachers">O‘qituvchilar</a>
+        <a href="#students">Sinfdoshlar</a>
+        <a href="#gallery">Galereya</a>
+        <a href="#contact">Bog‘lanish</a>
+    </div>
+
+    <div class="search">⌕</div>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">7-B Sinf</div>
+
+        <h1>
+            Qo‘ng‘irot tumani
+            Ixtisoslashtirilgan
+            maktab-internati
+        </h1>
+
+        <div class="slogan">
+            “Bilim – kelajak kaliti!”
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CARDS -->
+<section class="cards">
+
+    <a href="#about" style="text-decoration:none;color:inherit;">
+        <div class="card">
+
+            <div class="card-icon blue">🎓</div>
+
+            <div>
+                <h3>Bizning sinf</h3>
+                <p>7-B – bir jamoa, bir maqsad</p>
+            </div>
+
+        </div>
+    </a>
+
+
+    <a href="#students" style="text-decoration:none;color:inherit;">
+        <div class="card">
+
+            <div class="card-icon purple">👥</div>
+
+            <div>
+                <h3>Sinfdoshlar</h3>
+                <p>Do‘stlik va hamjihatlik</p>
+            </div>
+
+        </div>
+    </a>
+
+
+    <a href="#teachers" style="text-decoration:none;color:inherit;">
+        <div class="card">
+
+            <div class="card-icon green">📖</div>
+
+            <div>
+                <h3>O‘qituvchilar</h3>
+                <p>Bilim va tarbiya manbai</p>
+            </div>
+
+        </div>
+    </a>
+
+
+    <a href="#gallery" style="text-decoration:none;color:inherit;">
+        <div class="card">
+
+            <div class="card-icon orange">🖼</div>
+
+            <div>
+                <h3>Galereya</h3>
+                <p>Bizning eng yaxshi lahzalarimiz</p>
+            </div>
+
+        </div>
+    </a>
+
+</section>
+
+
+<!-- MAIN -->
+<section class="main">
+
+    <div class="about" id="about">
+
+        <div class="about-text">
+
+            <h2 class="section-title">
+                Bizning sinf
+            </h2>
+
+            <p>
+                7-B sinf – Qo‘ng‘irot tumani
+                Ixtisoslashtirilgan maktab-internatining
+                faol sinflaridan biridir.
+            </p>
+
+            <p>
+                Biz bu sinfda nafaqat bilim olamiz,
+                balki do‘stlik, mas’uliyat, o‘zaro hurmat
+                va katta orzular bilan birga o‘sib boramiz.
+            </p>
+
+            <p class="shior">
+                Bizning shiorimiz:
+            </p>
+
+            <p class="shior-text">
+                “O‘qish – kelajak, do‘stlik – baxt!”
+            </p>
+
+        </div>
+
+
+        <div>
+            <img
+                src="photo1.jpg"
+                class="about-img"
+                alt="7-B sinf"
+            >
+        </div>
+
+    </div>
+
+
+    <!-- SIDE -->
+    <div class="side">
+
+        <div class="news">
+
+            <div class="news-title">
+                📢 So‘nggi yangiliklar
+            </div>
+
+            <div class="news-item">
+
+                <h4>
+                    Sinfimizda yangi loyihalar
+                </h4>
+
+                <span>12.09.2026</span>
+
+                <div class="arrow">›</div>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <h4>
+                    Fan olimpiadalari tayyorgarligi
+                </h4>
+
+                <span>05.09.2026</span>
+
+                <div class="arrow">›</div>
+
+            </div>
+
+
+            <div class="news-item">
+
+                <h4>
+                    Maktabda sport musobaqasi
+                </h4>
+
+                <span>28.08.2026</span>
+
+                <div class="arrow">›</div>
+
+            </div>
+
+        </div>
+
+
+        <div class="quote">
+
+            <div class="quote-icon">❝</div>
+
+            <p>
+                “Bugungi mehnat – ertangi muvaffaqiyat!”
+            </p>
+
+            <div class="quote-line"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TEACHERS -->
+<section class="extra-section" id="teachers">
+
+    <div class="section-box">
+
+        <h2>O‘qituvchilar</h2>
+
+        <p>
+            Bizga bilim berayotgan va har kuni
+            qo‘llab-quvvatlayotgan ustozlarimiz.
+        </p>
+
+        <div class="teachers">
+
+            <div class="teacher">
+                <h3>Fan o‘qituvchisi</h3>
+                <p>O‘qituvchi haqida ma’lumot</p>
+            </div>
+
+            <div class="teacher">
+                <h3>Sinf rahbari</h3>
+                <p>Sinf rahbari haqida ma’lumot</p>
+            </div>
+
+            <div class="teacher">
+                <h3>Fan o‘qituvchisi</h3>
+                <p>O‘qituvchi haqida ma’lumot</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STUDENTS -->
+<section class="extra-section" id="students">
+
+    <div class="section-box">
+
+        <h2>Sinfdoshlar</h2>
+
+        <p>
+            Bizning 7-B sinfimiz o‘quvchilari.
+        </p>
+
+        <div class="students">
+
+            <div class="student">Abdiualitov Rasul Yusupbek uli</div>
+
+            <div class="student">Akbarova Asal Anvarovna</div>
+
+            <div class="student">Djoldasbayev Jamshid Ikramjanovich</div>
+
+            <div class="student">Gulmurzayeva Miragul Jalgasbaevna</div>
+
+            <div class="student">Jaksilikov Farrux Furkat uli</div>
+
+            <div class="student">Jalgashova Asal Klichbay qizi</div>
+
+            <div class="student">Aytbayev Abrorbek Nurfat o‘g‘li</div>
+
+            <div class="student">Jubandikov Sardor Gaybulla uli</div>
+
+            <div class="student">Kamiljanova Mohinur Zakirjon qizi</div>
+
+            <div class="student">Utemuratova Umida Baxtibay qizi</div>
+
+            <div class="student">Kumekbayev Bekzod Uktam uli</div>
+
+            <div class="student">Oralbayev Elnur Sulayman uli</div>
+
+            <div class="student">Rametullayev Sayidbek Alisherovich</div>
+
+            <div class="student">Sanetullayev Islambek Kudaybergen uli</div>
+
+            <div class="student">Tengelbayev Sunnatillo Shuxrat uli</div>
+
+            <div class="student">Yembergenov Jasurbek Turganbek uli</div>
+
+            <div class="student">Yenibayev Bunyodbek Davron uli</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+<section class="extra-section" id="gallery">
+
+    <div class="section-box">
+
+        <h2>Galereya</h2>
+
+        <p>
+            7-B sinfimizning esda qolarli lahzalari.
+        </p>
+
+        <div class="gallery">
+
+            <img src="photo1.jpg" alt="7-B sinf rasmi">
+
+            <img src="photo2.jpg" alt="7-B sinf rasmi">
+
+            <img src="photo3.jpg" alt="7-B sinf rasmi">
+
+            <img src="photo4.jpg" alt="7-B sinf rasmi">
+
+            <img src="photo5.jpg" alt="7-B sinf rasmi">
+
+            <img src="photo6.jpg" alt="7-B sinf rasmi">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="extra-section" id="contact">
+
+    <div class="section-box">
+
+        <h2>Bog‘lanish</h2>
+
+        <p>
+            Biz bilan bog‘lanish uchun quyidagi
+            ma’lumotlardan foydalanishingiz mumkin.
+        </p>
+
+        <div class="contact-box">
+
+            <div class="contact-item">
+                <h3>📍 Manzil</h3>
+                <p>Qo‘ng‘irot tumani</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>🏫 Maktab</h3>
+                <p>Ixtisoslashtirilgan maktab-internati</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>👥 Sinf</h3>
+                <p>7-B sinf</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-top">
+
+        <div>
+
+            <div class="footer-logo">
+                🎓 7-B Sinf
+            </div>
+
+            <div class="footer-small">
+                Qo‘ng‘irot tumani Ixtisoslashtirilgan<br>
+                maktab-internati
+            </div>
+
+        </div>
+
+
+        <div class="footer-links">
+            Bir jamoa &nbsp; • &nbsp;
+            Bir maqsad &nbsp; • &nbsp;
+            Yorqin kelajak
+        </div>
+
+
+        <div class="social">
+
+            <div>➤</div>
+            <div>◎</div>
+            <div>▶</div>
+            <div>🌐</div>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 7-B Sinf. Barcha huquqlar himoyalangan.
+    </div>
+
+</footer>
+
+</body>
+</html>
